@@ -17,13 +17,13 @@
   <header>
     <div class="nav">
     <ul>
-    <li><a href="Sandton Resort & Spa.html">ABOUT</a></li>
-    <li><a href="stay.html">STAY</a></li>
-    <li><a href="dining and nightlife.html">DINING & NIGHTLIFE</a></li>
-    <li><a href="experiences.html">EXPERIENCES</a></li>
-    <li><a href="wellness.html">WELLNESS</a></li>
-    <li><a href="meetings.html">MEETINGS & EVENTS</a></li>
-    <li><a href="contact.html">CONTACT US</a></li>
+    <li><a href="Sandton Resort & Spa.php">ABOUT</a></li>
+    <li><a href="stay.php">STAY</a></li>
+    <li><a href="dining and nightlife.php">DINING & NIGHTLIFE</a></li>
+    <li><a href="experiences.php">EXPERIENCES</a></li>
+    <li><a href="wellness.php">WELLNESS</a></li>
+    <li><a href="meetings.php">MEETINGS & EVENTS</a></li>
+    <li><a href="contact.php">CONTACT US</a></li>
   </ul>
     </div>
   </header>
