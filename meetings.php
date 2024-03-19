@@ -19,13 +19,14 @@
 <header>
 <div class="nav">
   <ul>
-    <li><a href="Sandton Resort & Spa.html">ABOUT</a></li>
-    <li><a href="stay.html">STAY</a></li>
-    <li><a href="dining and nightlife.html">DINING & NIGHTLIFE</a></li>
-    <li><a href="experiences.html">EXPERIENCES</a></li>
-    <li><a href="wellness.html">WELLNESS</a></li>
-    <li><a href="meetings.html">MEETINGS & EVENTS</a></li>
-    <li><a href="contact.html">CONTACT US</a></li>
+    <li><a href="home.php">ABOUT</a></li>
+    <li><a href="stay.php">STAY</a></li>
+    <li><a href="dining and nightlife.php">DINING & NIGHTLIFE</a></li>
+    <li><a href="experiences.php">EXPERIENCES</a></li>
+    <li><a href="wellness.php">WELLNESS</a></li>
+    <li><a href="meetings.php">MEETINGS & EVENTS</a></li>
+    <li><a href="contact.php">CONTACT US</a></li>
+    <li><a href="login.php"><i class="fa fa-user"></i>  LOGIN</a></li>
   </ul>
 </div>
 </header>
@@ -69,7 +70,7 @@
   <h2 style="color:#7a2021;">EXECUTIVE BOARDROOM</h2><br>
   <img src="./images/boardroom.jpg"height="450"width="900"/><br><br>
   <p>Meticulously thought out, lavishly furnished and technologically<br>
-     advanced, our 19-seater Executive Boardroom is perfect for high-level meetings, strategy<br>
+     advanced, our 20-seater Executive Boardroom is perfect for high-level meetings, strategy<br>
      sessions or out of town executive retreats. You will be pleased to note that<br>
      it has its own private entrance, a private lounge/dining area to<br>
      ensure an exclusive, stress-free environment.</p>
