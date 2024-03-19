@@ -17,13 +17,15 @@
   <header>
     <div class="nav">
     <ul>
-    <li><a href="Sandton Resort & Spa.php">ABOUT</a></li>
+    <li><a href="home.php">ABOUT</a></li>
     <li><a href="stay.php">STAY</a></li>
     <li><a href="dining and nightlife.php">DINING & NIGHTLIFE</a></li>
     <li><a href="experiences.php">EXPERIENCES</a></li>
     <li><a href="wellness.php">WELLNESS</a></li>
     <li><a href="meetings.php">MEETINGS & EVENTS</a></li>
     <li><a href="contact.php">CONTACT US</a></li>
+    <li><a href="user/user.php"> USER</a></li>
+    <li><a href="login.php"><i class="fa fa-user"></i>  LOGIN</a></li>
   </ul>
     </div>
   </header>
@@ -49,7 +51,7 @@
   <img src="./images/vip1.jpg"height="300"width="450"/> <img src="./images/vip2.jpg"height="300"width="450"/><br><br><br>
   <p>All our rooms are spacious and comfortable offerring lovely sweeping views of the<br>
      surrrounding hills and the lush tropical gardens.</p>
-  <a href="stay.html"><button><b>EXPLORE</b></button></a><br><br><br>
+  <a href="stay.php"><button><b>EXPLORE</b></button></a><br><br><br>
 </div><br><br><br>
 
 <div class="meetings">
@@ -59,7 +61,7 @@
      our facility can be used as a grand ballroom, a convention center<br>
      or for several smaller meetings. With a seating of over 500 people,<br>
      we will adequately cater to your needs.</p>
-  <a href="meetings.html"><button><b>EXPLORE</b></button></a><br><br><br>
+  <a href="meetings.php"><button><b>EXPLORE</b></button></a><br><br><br>
 </div><br><br><br>
 
 <div class="wellness"><br><br>
@@ -68,7 +70,7 @@
   <p>Whether you have time for a whole day of rejuvenation or a few hours<br>
      to refresh, Siara's holistic section of spa and sauna experiences amidst sensational<br>
      surroundings promise complete well-being and serenity.</p>
-  <a href="wellness.html"><button><b>EXPLORE</b></button></a><br><br><br>
+  <a href="wellness.php"><button><b>EXPLORE</b></button></a><br><br><br>
 </div><br><br><br>
 
 <div class="dinning">
@@ -85,7 +87,7 @@
   <p>Let our chefs introduce to you the best traditional and international cuisines.<br>
      Using only fresh and finest ingredients, our chefs offer you<br>
      a variety of food selections suitable for every discerning plate.</p>
-  <a href="dining and nightlife.html"><button><b>EXPLORE</b></button></a><br><br><br>
+  <a href="dining and nightlife.php"><button><b>EXPLORE</b></button></a><br><br><br>
 </div><br><br><br></div>
 
 <div class="experiences" >
@@ -94,7 +96,7 @@
   <p>Shairing with you the Sandton experiences.<br>
      Get to enjoy taking part in various activities and make memorable<br>
      moments with family and friends.</p>
-  <a href="experiences.html"><button><b>EXPLORE</b></button></a><br><br><br>
+  <a href="experiences.php"><button><b>EXPLORE</b></button></a><br><br><br>
 </div><br><br><br>
 
 <footer>

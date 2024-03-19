@@ -1,0 +1,38 @@
+/*-----------------------------------*\
+  #events
+\*-----------------------------------*/
+
+/* Main content styles */
+.content {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Room section styles */
+.room {
+  /*display: flex; Display items side by side */
+  border: 1px solid #ddd;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.room img {
+  margin-right: 20px; /* Add spacing between image and content */
+}
+
+.room h2 {
+  text-align: center;
+}
+
+.room p {
+  text-align: left;
+}
+
+.room ul {
+  text-align: left;
+}
+
+button {
+  float: right;
+}
