@@ -22,7 +22,7 @@
     <li><a href="wellness.php">WELLNESS</a></li>
     <li><a href="meetings.php">MEETINGS & EVENTS</a></li>
     <li><a href="contact.php">CONTACT US</a></li>
-    <li><a href="login.php"><i class="fa fa-user"></i>  LOGIN</a></li>
+    <li><a href="login/login.php"><i class="fa fa-user"></i>  LOGIN</a></li>
   </ul>
 </div>
 </header>
