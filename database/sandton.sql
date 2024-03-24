@@ -121,3 +121,30 @@ INSERT INTO ConferenceHallBookings (HallID) VALUES
 
 ALTER TABLE ConferenceHals ADD COLUMN HallNumber INT AUTO_INCREMENT FIRST;
 
+-- Create the Experience table
+CREATE TABLE IF NOT EXISTS Experience (
+    ID INT AUTO_INCREMENT PRIMARY KEY,
+    Service VARCHAR(50),
+    Price INT
+);
+
+-- Insert data into the Experience table
+INSERT INTO Experience (Service, Price)
+VALUES
+    ('HotstoneMassage', 5000),
+    ('FacialTherapy', 3000),
+    ('ExfoliateGlow', 2500),
+    ('Sauna', 9000),
+    ('Salon', 3000);
+
+CREATE TABLE IF NOT EXISTS Users (
+    UserID INT AUTO_INCREMENT PRIMARY KEY,
+    FullName VARCHAR(100) NOT NULL,
+    Email VARCHAR(100) NOT NULL UNIQUE,
+    Username VARCHAR(50) NOT NULL UNIQUE,
+    Password VARCHAR(255) NOT NULL,
+    DateOfBirth DATE NOT NULL
+);
+
+INSERT INTO Users (FullName, Email, Username, Password, DateOfBirth) 
+VALUES ('Lydiah Star', 'lydiahnjambi143@gmail.com', 'Lydiah_K', '12345', '2001-12-01');

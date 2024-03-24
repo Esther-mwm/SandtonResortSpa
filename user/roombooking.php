@@ -1,3 +1,34 @@
+<?php
+// Establish database connection
+include 'connection.php';
+
+// Handle form submission
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Prepare and bind SQL statement
+    $stmt = $mysqli->prepare("INSERT INTO bookings (check_in_date, check_out_date, room_type, adults, children, total_amount) VALUES (?, ?, ?, ?, ?, ?)");
+    $stmt->bind_param("sssiid", $check_in_date, $check_out_date, $room_type, $adults, $children, $total_amount);
+
+    // Set parameters and execute
+    $check_in_date = $_POST["check-in-date"];
+    $check_out_date = $_POST["check-out-date"];
+    $room_type = $_POST["room-type"];
+    $adults = $_POST["adults"];
+    $children = $_POST["children"];
+    $total_amount = $_POST["total-amount"];
+
+    if ($stmt->execute() === TRUE) {
+        echo "Booking successfully saved!";
+    } else {
+        echo "Error: " . $stmt->error;
+    }
+
+    $stmt->close();
+}
+
+// Close connection
+$mysqli->close();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,7 +46,7 @@
     <div class="logo"><img src=".././images/logo2.png" height="100" width="150" /></div>
     <div class="container">
         <h2 style="color:#7a2021;">Room Booking.</h2>
-        <form id="booking-form">
+        <form id="booking-form" method="post" action="process_booking.php">
             <label for="check-in-date">Check-in Date:</label>
             <input type="date" id="check-in-date" name="check-in-date">
             <label for="check-out-date">Check-out Date:</label>
