@@ -114,6 +114,9 @@
                 case 'meeting':
                     include('meeting.php');
                     break;
+                case 'experience':
+                    include('experience.php');
+                    break;
                 case 'booking':
                     include('bookings.php');
                     break;
