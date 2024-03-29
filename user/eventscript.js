@@ -1,26 +1,10 @@
 document.addEventListener("DOMContentLoaded", function () {
-  const checkoutBtn = document.getElementById("checkout-btn");
   const cancelBtn = document.getElementById("cancel-btn");
-  const popup = document.getElementById("popup");
-  const cancelPopup = document.getElementById("cancel-popup");
-  const proceedPopup = document.getElementById("proceed-popup");
   const totalAmountDisplay = document.getElementById("total-amount");
-
-  checkoutBtn.addEventListener("click", function () {
-    popup.style.display = "block";
-  });
+  const totalAmountInput = document.getElementById("total-amount-input");
 
   cancelBtn.addEventListener("click", function () {
     window.location.href = "events.php";
-  });
-
-  cancelPopup.addEventListener("click", function () {
-    popup.style.display = "none";
-  });
-
-  proceedPopup.addEventListener("click", function () {
-    popup.style.display = "none";
-    // Add your checkout logic here
   });
 
   const bookingForm = document.getElementById("booking-form");
@@ -32,7 +16,6 @@ document.addEventListener("DOMContentLoaded", function () {
   };
 
   bookingForm.addEventListener("change", function () {
-    let totalAmount = 0;
     const checkInDate = new Date(
       document.getElementById("check-in-date").value
     );
@@ -43,6 +26,7 @@ document.addEventListener("DOMContentLoaded", function () {
       (checkOutDate - checkInDate) / (1000 * 60 * 60 * 24)
     );
 
+    let totalAmount = 0;
     document
       .querySelectorAll('input[name="room-type"]:checked')
       .forEach(function (checkbox) {
@@ -57,7 +41,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
       });
 
-    totalAmountDisplay.textContent =
-      "Total Amount: KSH" + totalAmount.toFixed(2);
+    totalAmountDisplay.textContent = "KSH" + totalAmount.toFixed(2);
+    totalAmountInput.value = totalAmount; // Update the hidden input field with the calculated total amount
   });
 });

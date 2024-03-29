@@ -3,73 +3,78 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Rooms</title>
+<title>Room Bookings</title>
 <style>
-    table {
-        border-collapse: collapse;
-        width: 100%;
-    }
-    th, td {
-        border: 1px solid #dddddd;
-        text-align: left;
-        padding: 8px;
-    }
-    th {
-        background-color: #f2f2f2;
-    }
-</style>
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .add-user {
+            margin-bottom: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        table th, table td {
+            padding: 8px;
+            border: 1px solid #ddd;
+        }
+
+        table th {
+            background-color: #f2f2f2;
+        }
+
+        table tbody tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+    </style>
 </head>
 <body>
+<div class="container">
+  <h2>Room Bookings Information</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Check-in Date</th>
+        <th>Check-out Date</th>
+        <th>Room Type</th>
+        <th>Adults</th>
+        <th>Children</th>
+      </tr>
+    </thead>
+    <tbody>
+      <?php
+      // Include database connection
+      include 'connection.php';
 
-<h2>Rooms Information</h2>
+      // Retrieve room booking information from the database
+      $sql = "SELECT id, check_in_date, check_out_date, room_type, adults, children, total_amount FROM room_bookings";
+      $result = mysqli_query($con, $sql);
 
-<button class="button" onclick="showAddForm()">Add Room</button>
-
-<table>
-  <thead>
-    <tr>
-      <th>Room Number</th>
-      <th>Room Type</th>
-      <th>Price</th>
-      <th>Capacity</th>
-      <th>Adults</th>
-      <th>Children</th>
-      <th>Status</th>
-      <th>Action</th>
-    </tr>
-  </thead>
-  <tbody>
-    <?php
-    // Include database connection
-    include 'connection.php';
-
-    // Retrieve room information from the database
-    $query = "SELECT r.RoomID, r.RoomNumber, rt.RoomType, rt.Price, rt.Capacity, rt.Adults, rt.Children, r.Status
-              FROM Room r
-              JOIN RoomTypes rt ON r.RoomTypeID = rt.RoomTypeID";
-    $result = mysqli_query($mysqli, $query);
-    if (mysqli_num_rows($result) > 0) {
-        while ($row = mysqli_fetch_assoc($result)) {
-            echo "<tr>";
-            echo "<td>{$row['RoomNumber']}</td>";
-            echo "<td>{$row['RoomType']}</td>";
-            echo "<td>{$row['Price']}</td>";
-            echo "<td>{$row['Capacity']}</td>";
-            echo "<td>{$row['Adults']}</td>";
-            echo "<td>{$row['Children']}</td>";
-            echo "<td>{$row['Status']}</td>";
-            echo "<td>";
-            echo "<a class='edit-btn' href='edit_room.php?id={$row['RoomID']}'>Edit</a>";  
-            echo "<a class='delete-btn' href='delete_room.php?id={$row['RoomID']}'>Delete</a>";
-            echo "</td>";
-            echo "</tr>";
-        }
-    } else {
-        echo "<tr><td colspan='7'>No rooms found</td></tr>";
-    }
-    ?>
-  </tbody>
-</table>
-
+      if (mysqli_num_rows($result) > 0) {
+          while ($row = mysqli_fetch_assoc($result)) {
+              echo "<tr>";
+              echo "<td>{$row['check_in_date']}</td>";
+              echo "<td>{$row['check_out_date']}</td>";
+              echo "<td>{$row['room_type']}</td>";
+              echo "<td>{$row['adults']}</td>";
+              echo "<td>{$row['children']}</td>";
+              echo "<td>{$row['total_amount']}</td>";
+              echo "</tr>";
+          }
+      } else {
+          echo "<tr><td colspan='7'>No room bookings found</td></tr>";
+      }
+                  // Close connection
+                  mysqli_close($con);
+                  ?>
+    </tbody>
+  </table>
+</div>
 </body>
 </html>
