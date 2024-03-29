@@ -1,41 +1,40 @@
 <?php
-// Establish database connection
-include 'connection.php';
+include('connection.php');
 
-// Handle form submission
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Prepare and bind SQL statement
-    $stmt = $mysqli->prepare("INSERT INTO bookings (check_in_date, check_out_date, room_type, adults, children, total_amount) VALUES (?, ?, ?, ?, ?, ?)");
-    $stmt->bind_param("sssiid", $check_in_date, $check_out_date, $room_type, $adults, $children, $total_amount);
+// Initialize message variable
+$msg = '';
 
-    // Set parameters and execute
-    $check_in_date = $_POST["check-in-date"];
-    $check_out_date = $_POST["check-out-date"];
-    $room_type = $_POST["room-type"];
-    $adults = $_POST["adults"];
-    $children = $_POST["children"];
-    $total_amount = $_POST["total-amount"];
+// Check if the form is submitted
+if(isset($_POST['book'])) {
+    // Sanitize input data
+    $checkInDate = mysqli_real_escape_string($con, $_POST['check-in-date']);
+    $checkOutDate = mysqli_real_escape_string($con, $_POST['check-out-date']);
+    $roomType = mysqli_real_escape_string($con, $_POST['room-type']);
+    $adults = intval($_POST['adults']); // Convert to integer
+    $children = intval($_POST['children']); // Convert to integer
+    $totalAmount = floatval($_POST['total-amount']); // Convert to float
 
-    if ($stmt->execute() === TRUE) {
-        echo "Booking successfully saved!";
+    // Insert booking details into the database
+    $sql_room_details = "INSERT INTO room_bookings (check_in_date, check_out_date, room_type, adults, children, total_amount) VALUES ('$checkInDate', '$checkOutDate', '$roomType', $adults, $children, $totalAmount)";
+    
+    // Execute query
+    if(mysqli_query($con, $sql_room_details)) {
+        $msg = "<h4 style='color:green'>Booking has been made successfully.</h4>"; 
     } else {
-        echo "Error: " . $stmt->error;
+        $msg = "<h4 style='color:red'>Error in Booking. Please try again.</h4>"; 
+        // Debugging: Print SQL error
+        echo "Error: " . $sql_room_details . "<br>" . mysqli_error($con);
     }
-
-    $stmt->close();
 }
-
-// Close connection
-$mysqli->close();
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Booking </title>
+  <title>Room Booking</title>
   <link rel="icon" type="image/x-icon" href=".././sandton icon.ico">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="./booking.css">
@@ -46,41 +45,42 @@ $mysqli->close();
     <div class="logo"><img src=".././images/logo2.png" height="100" width="150" /></div>
     <div class="container">
         <h2 style="color:#7a2021;">Room Booking.</h2>
-        <form id="booking-form" method="post" action="process_booking.php">
+        <?php echo isset($msg) ? $msg : ""; ?>
+        <form id="booking-form" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="POST">
             <label for="check-in-date">Check-in Date:</label>
             <input type="date" id="check-in-date" name="check-in-date">
             <label for="check-out-date">Check-out Date:</label>
             <input type="date" id="check-out-date" name="check-out-date"><br><br>
             <label for="room-type">Choose Room Type:</label><br>
-            <input type="checkbox" id="deluxe-room" name="room-type" value="deluxe-room">
+            <input type="radio" id="deluxe-room" name="room-type" value="deluxe-room">
             <label for="deluxe-room">Deluxe Executive Room</label><br>
-            <input type="checkbox" id="honeymoon-suite" name="room-type" value="honeymoon-suite">
+            <input type="radio" id="honeymoon-suite" name="room-type" value="honeymoon-suite">
             <label for="honeymoon-suite">Honeymoon Suite</label><br>
-            <input type="checkbox" id="fountain-room" name="room-type" value="fountain-room">
+            <input type="radio" id="fountain-room" name="room-type" value="fountain-room">
             <label for="fountain-room">Fountain Executive Room</label><br>
-            <input type="checkbox" id="villa-room" name="room-type" value="villa-room">
+            <input type="radio" id="villa-room" name="room-type" value="villa-room">
             <label for="villa-room">Villa Room</label><br><br>
 
             <label for="adults">Number of Adults:</label>
             <input type="number" id="adults" name="adults" min="1"><br><br>
             <label for="children">Number of Children:</label>
             <input type="number" id="children" name="children" min="0"><br><br>
+            
             <div id="total">
                 <label for="total">Total Amount:</label>
                 <span id="total-amount"></span>
             </div>
             <br>
-            <button type="button" id="checkout-btn">Checkout</button>
+            
+            <!-- Add a hidden input field to store the total amount -->
+            <input type="hidden" id="total-amount-input" name="total-amount">
+
+            <button type="submit" name="book">Checkout</button>
             <button type="button" id="cancel-btn">Cancel</button><br><br>
         </form>
     </div>
-    <div id="popup" class="popup">
-        <div class="popup-content">
-            <p>Are you sure you want to continue?</p>
-            <button id="cancel-popup">Cancel</button>
-            <button id="proceed-popup">Proceed</button>
-        </div>
-    </div>
+    
+    
     <script src="roomscript.js"></script>
 
     <footer>

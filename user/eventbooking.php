@@ -1,3 +1,32 @@
+<?php
+include('connection.php');
+
+// Initialize message variable
+$msg = '';
+
+// Check if the form is submitted
+if(isset($_POST['book'])) {
+    // Sanitize input data
+    $checkInDate = mysqli_real_escape_string($con, $_POST['check-in-date']);
+    $checkOutDate = mysqli_real_escape_string($con, $_POST['check-out-date']);
+    $roomType = mysqli_real_escape_string($con, $_POST['room-type']);
+    $seating = intval($_POST['seating']); // Convert to integer
+    $totalAmount = floatval($_POST['total-amount']); // Convert to float
+
+    // Insert booking details into the database
+    $sql_room_details = "INSERT INTO meeting_bookings (check_in_date, check_out_date, room_type, seating, total_amount) VALUES ('$checkInDate', '$checkOutDate', '$roomType', $seating, $totalAmount)";
+    
+    // Execute query
+    if(mysqli_query($con, $sql_room_details)) {
+        $msg = "<h4 style='color:green'>Booking has been made successfully.</h4>"; 
+    } else {
+        $msg = "<h4 style='color:red'>Error in Booking. Please try again.</h4>"; 
+        // Debugging: Print SQL error
+        echo "Error: " . $sql_room_details . "<br>" . mysqli_error($con);
+    }
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,20 +44,21 @@
     <div class="logo"><img src=".././images/logo2.png" height="100" width="150" /></div>
     <div class="container">
         <h2 style="color:#7a2021;">Event Booking Page</h2>
-        <form id="booking-form">
+        <?php echo isset($msg) ? $msg : ""; ?>
+        <form id="booking-form" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="POST">
             <label for="check-in-date">Check-in Date:</label>
             <input type="date" id="check-in-date" name="check-in-date">
             <label for="check-out-date">Check-out Date:</label>
             <input type="date" id="check-out-date" name="check-out-date">
             <br><br>
             <label for="room-type">Choose Room Type:</label><br>
-            <input type="checkbox" id="small-conference" name="room-type" value="small-conference">
+            <input type="radio" id="small-conference" name="room-type" value="small-conference">
             <label for="small-conference">Small Conference Room</label><br>
-            <input type="checkbox" id="executive-boardroom" name="room-type" value="executive-boardroom">
+            <input type="radio" id="executive-boardroom" name="room-type" value="executive-boardroom">
             <label for="executive-boardroom">Executive Board Room</label><br>
-            <input type="checkbox" id="grand-ballroom" name="room-type" value="grand-ballroom">
+            <input type="radio" id="grand-ballroom" name="room-type" value="grand-ballroom">
             <label for="grand-ballroom">Grand Ballroom</label><br>
-            <input type="checkbox" id="large-conference" name="room-type" value="large-conference">
+            <input type="radio" id="large-conference" name="room-type" value="large-conference">
             <label for="large-conference">Large Conference Room</label><br><br>
             <label for="seating">Number of Seating:</label>
             <input type="number" id="seating" name="seating" min="1">
@@ -39,16 +69,13 @@
                 <span id="total-amount"></span>
             </div>
             <br>
-            <button type="button" id="checkout-btn">Checkout</button>
+            
+            <!-- Add a hidden input field to store the total amount -->
+            <input type="hidden" id="total-amount-input" name="total-amount">
+
+            <button type="submit" name="book">Checkout</button>
             <button type="button" id="cancel-btn">Cancel</button><br><br>
         </form>
-    </div>
-    <div id="popup" class="popup">
-        <div class="popup-content">
-            <p>Are you sure you want to continue?</p>
-            <button id="cancel-popup">Cancel</button>
-            <button id="proceed-popup">Proceed</button>
-        </div>
     </div>
     <script src="eventscript.js"></script>
 

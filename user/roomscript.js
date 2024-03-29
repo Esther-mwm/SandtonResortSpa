@@ -1,26 +1,10 @@
 document.addEventListener("DOMContentLoaded", function () {
-  const checkoutBtn = document.getElementById("checkout-btn");
   const cancelBtn = document.getElementById("cancel-btn");
-  const popup = document.getElementById("popup");
-  const cancelPopup = document.getElementById("cancel-popup");
-  const proceedPopup = document.getElementById("proceed-popup");
   const totalAmountDisplay = document.getElementById("total-amount");
-
-  checkoutBtn.addEventListener("click", function () {
-    popup.style.display = "block";
-  });
+  const totalAmountInput = document.getElementById("total-amount-input");
 
   cancelBtn.addEventListener("click", function () {
     window.location.href = "user.php";
-  });
-
-  cancelPopup.addEventListener("click", function () {
-    popup.style.display = "none";
-  });
-
-  proceedPopup.addEventListener("click", function () {
-    popup.style.display = "none";
-    // Add your checkout logic here
   });
 
   const bookingForm = document.getElementById("booking-form");
@@ -63,5 +47,6 @@ document.addEventListener("DOMContentLoaded", function () {
       });
 
     totalAmountDisplay.textContent = "KSH" + totalAmount.toFixed(2);
+    totalAmountInput.value = totalAmount; // Update the hidden input field with the calculated total amount
   });
 });

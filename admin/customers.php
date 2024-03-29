@@ -56,18 +56,18 @@
                 include 'connection.php';
 
                 // Fetch users from database
-                $sql = "SELECT UserID, FullName, Email, Username, DateOfBirth FROM Users";
-                $result = mysqli_query($mysqli, $sql);
+                $sql = "SELECT id, fullname, email, username, dob FROM user_details";
+                $result = mysqli_query($con, $sql);
 
                 if (mysqli_num_rows($result) > 0) {
                     // Output data of each row
                     while ($row = mysqli_fetch_assoc($result)) {
                         echo "<tr>";
-                        echo "<td>" . $row["UserID"] . "</td>";
-                        echo "<td>" . $row["FullName"] . "</td>";
-                        echo "<td>" . $row["Email"] . "</td>";
-                        echo "<td>" . $row["Username"] . "</td>";
-                        echo "<td>" . $row["DateOfBirth"] . "</td>";
+                        echo "<td>" . $row["id"] . "</td>";
+                        echo "<td>" . $row["fullname"] . "</td>";
+                        echo "<td>" . $row["email"] . "</td>";
+                        echo "<td>" . $row["username"] . "</td>";
+                        echo "<td>" . $row["dob"] . "</td>";
                         echo "</tr>";
                     }
                 } else {
@@ -75,7 +75,7 @@
                 }
 
                 // Close connection
-                mysqli_close($mysqli);
+                mysqli_close($con);
                 ?>
             </tbody>
         </table>
