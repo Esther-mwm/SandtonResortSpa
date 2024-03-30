@@ -90,7 +90,7 @@
         <a href="admin.php?page=customers">Customers</a>
         <a href="admin.php?page=rooms">Rooms</a>
         <a href="admin.php?page=meeting">Board Rooms</a>
-        <a href="admin.php?page=experience">Experience</a>
+        <a href="admin.php?page=experience">Wellness</a>
         <a href="admin.php?page=booking">Bookings</a>
         <a href="admin.php?page=payment">Payment</a>
     </nav>

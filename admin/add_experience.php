@@ -59,7 +59,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Add Experience</title>
+<title>Add Wellness</title>
 <style>
     /* Modal overlay */
     .modal-overlay {
@@ -117,13 +117,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <body>
 
 <!-- Add Experience button -->
-<button onclick="openModal()">Add Experience</button>
+<button onclick="openModal()">Add Wellness</button>
 
 <!-- Modal overlay -->
 <div id="modal" class="modal-overlay">
     <!-- Modal content -->
     <div class="modal-content">
-        <h2>Add Experience</h2>
+        <h2>Add Wellness</h2>
         <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
             <div>
                 <label for="service">Service:</label>
