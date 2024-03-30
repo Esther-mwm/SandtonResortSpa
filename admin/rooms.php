@@ -64,7 +64,6 @@
               echo "<td>{$row['room_type']}</td>";
               echo "<td>{$row['adults']}</td>";
               echo "<td>{$row['children']}</td>";
-              echo "<td>{$row['total_amount']}</td>";
               echo "</tr>";
           }
       } else {

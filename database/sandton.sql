@@ -35,6 +35,33 @@ CREATE TABLE `meeting_bookings` (
   `check_out_date` date NOT NULL,
   `room_type` varchar(50) NOT NULL,
   `seating` int(11) NOT NULL,
+  `total_amount` decimal(10,2) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+CREATE TABLE `wellness_bookings` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `check_in_date` date NOT NULL,
+  `check_out_date` date NOT NULL,
+  `wellness_type` varchar(50) NOT NULL,
+  `adults` int(11) NOT NULL,
+  `total_amount` decimal(10,2) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+CREATE TABLE `bookings` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `fullname` varchar(100) NOT NULL,
+  `username` varchar(100) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `check_in_date` date NOT NULL,
+  `check_out_date` date NOT NULL,
+  `room_type` varchar(50) NOT NULL,
+  `wellness_type` varchar(50) NOT NULL,
+  `adults` int(11) NOT NULL,
+  `children` int(11) NOT NULL,
+  `seating` int(11) NOT NULL,
+  `total_amount` decimal(10,2) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 

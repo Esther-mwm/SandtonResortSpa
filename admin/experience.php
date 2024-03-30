@@ -3,75 +3,76 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Experience Information</title>
+<title>Wellness Bookings</title>
 <style>
-    /* Table styles */
-    table {
-        border-collapse: collapse;
-        width: 100%;
-    }
-    th, td {
-        border: 1px solid #dddddd;
-        text-align: left;
-        padding: 8px;
-    }
-    th {
-        background-color: #f2f2f2;
-    }
-    /* Button styles */
-    .add-button {
-        background-color: #4CAF50;
-        border: none;
-        color: white;
-        padding: 10px 20px;
-        text-align: center;
-        text-decoration: none;
-        display: inline-block;
-        font-size: 16px;
-        margin-bottom: 10px;
-        cursor: pointer;
-    }
-</style>
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .add-user {
+            margin-bottom: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        table th, table td {
+            padding: 8px;
+            border: 1px solid #ddd;
+        }
+
+        table th {
+            background-color: #f2f2f2;
+        }
+
+        table tbody tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+    </style>
 </head>
 <body>
+<div class="container">
+<h2>Wellness Booking Information</h2>
 
-<h2>Experience Information</h2>
-
-<!-- Add Experience button -->
-<button class="add-button" onclick="location.href='add_experience.php'">Add Experience</button>
-
-<!-- Table to display experience information -->
 <table>
+<tbody>
+    <thead>
     <tr>
-        <th>ID</th>
-        <th>Service</th>
-        <th>Price</th>
-        <th>Action</th>
-    </tr>
+        <th>Check-in Date</th>
+        <th>Check-out Date</th>
+        <th>Wellness Type</th>
+        <th>adults</th>
+      </tr>
+    </thead>  
     <?php
     // Include database connection
     include 'connection.php';
 
-    // Fetch experience information from the database
-    $query = "SELECT * FROM Experience";
-    $result = mysqli_query($mysqli, $query);
+      // Retrieve room booking information from the database
+      $sql = "SELECT id, check_in_date, check_out_date, wellness_type, adults FROM wellness_bookings";
+      $result = mysqli_query($con, $sql);
 
-    // Check if any data is returned
-    if (mysqli_num_rows($result) > 0) {
-        // Output data of each row
-        while ($row = mysqli_fetch_assoc($result)) {
+      if (mysqli_num_rows($result) > 0) {
+          while ($row = mysqli_fetch_assoc($result)) {
             echo "<tr>";
-            echo "<td>" . $row['ID'] . "</td>";
-            echo "<td>" . $row['Service'] . "</td>";
-            echo "<td>" . $row['Price'] . "</td>";
-            echo "<td><a href='edit_experience.php?id=" . $row['ID'] . "'>Edit</a></td>";
+              echo "<td>{$row['check_in_date']}</td>";
+              echo "<td>{$row['check_out_date']}</td>";
+              echo "<td>{$row['wellness_type']}</td>";
+              echo "<td>{$row['adults']}</td>";
             echo "</tr>";
         }
-    } else {
-        echo "<tr><td colspan='4'>No experience found</td></tr>";
-    }
-    ?>
+    }else {
+            echo "<tr><td colspan='7'>No wellness bookings found</td></tr>";
+        }
+                    // Close connection
+                    mysqli_close($con);
+                    ?>
+      </tbody>
 </table>
-
+    </div>
 </body>
 </html>
