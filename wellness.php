@@ -22,7 +22,7 @@
     <li><a href="wellness.php">WELLNESS</a></li>
     <li><a href="meetings.php">MEETINGS & EVENTS</a></li>
     <li><a href="contact.php">CONTACT US</a></li>
-    <li><a href="login.php"><i class="fa fa-user"></i>  LOGIN</a></li>
+    <li><a href="login/login.php"><i class="fa fa-user"></i>  LOGIN</a></li>
   </ul>
 </div>
 </header>
@@ -106,8 +106,8 @@
   <div class="bottom">
     <ul>
       <li><h4>Resort Location</h4></li>
-      <li>Mayland South Lake Rd</li>
-      <li>Myland, Dubai</li>
+      <li>Moi S Lake Rd</li>
+      <li>Karagita, Kenya</li>
       <li>Tel: +001 20 5230007</li>
       <li>sandton@sandtonresort.com</li>
     </ul>
@@ -119,7 +119,7 @@
       <li><h4>Booking Office<h4></li>
       <li>5th floor</li>
       <li>Prosperity House</li>
-      <li>Mayland Road</li>
+      <li>Moi S Lake Rd</li>
       <li>Cell: +001 30 6473382</li>
     </ul>
   </div>
@@ -131,7 +131,7 @@
 </div>
 
 <div class="copy">
-  <p><i>© 2023 | Sandton Resort and Spa | Done by Esther Mwangi</i></p>
+  <p><i>© 2024| Sandton Resort and Spa | Done by Esther Mwangi</i></p>
 </div>
 </footer>
 
