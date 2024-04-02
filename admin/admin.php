@@ -80,7 +80,7 @@
         <h1>Sandton Resort & SPA Admin</h1>
         <div class="details">
             <button>Profile</button>
-            <button><a href="logout.php">Log Out</a></button>
+            <button><a href="../login/login.php">Log Out</a></button>
         </div>
         
     </header>
@@ -130,7 +130,7 @@
     </div>
 
     <footer>
-        &copy; 2023 Ibis Hotel. All rights reserved.
+        &copy; 2024Ibis Hotel. All rights reserved.
     </footer>
 
 </body>

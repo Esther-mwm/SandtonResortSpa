@@ -18,7 +18,7 @@ if(isset($_POST['login'])) {
         $sql = mysqli_query($con, "SELECT * FROM users WHERE (username='$username' OR email='$username') AND password='$password'");
         if(mysqli_num_rows($sql) == 1) {
             $_SESSION['user_logged_in'] = $username;
-            header('location: ../user/user.php'); 
+            header('location: ../admin/admin.php'); 
             exit();
         } else {
             $error = "<h4 style='color:red'>Invalid login details</h4>"; 
@@ -32,13 +32,13 @@ if(isset($_POST['login'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>User Login Page</title>
+    <title>Admin Login Page</title>
     <link rel="icon" type="image/x-icon" href=".././sandton icon.ico">
-    <link rel="stylesheet" href="login.css">
+    <link rel="stylesheet" href="adminLog.css">
 </head>
 <body>
     <div class="container">
-        <h2>User Login</h2>
+        <h2>Admin Login</h2>
         <?php echo isset($error) ? $error : ""; ?>
         <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="POST">
             <input type="text" name="username" placeholder="Username or Email" required>
@@ -50,7 +50,7 @@ if(isset($_POST['login'])) {
         </div>
         <div class="register-link">
             <p>Don't have an account? <a href="register.php">Register here</a></p>
-            <p>Admin login <a href="adminlog.php">Admin Login</a></p>
+            <p>User login <a href="login.php">User Login</a></p>
         </div>
     </div>
 </body>
