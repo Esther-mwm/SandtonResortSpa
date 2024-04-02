@@ -99,8 +99,8 @@ if(isset($_POST['book'])) {
     <div class="bottom">
         <ul>
         <li><h4>Resort Location</h4></li>
-        <li>Mayland South Lake Rd</li>
-        <li>Myland, Dubai</li>
+        <li>Moi S Lake Rd</li>
+        <li>Karagita, Kenya</li>
         </ul>
 
     </div>
@@ -110,7 +110,7 @@ if(isset($_POST['book'])) {
         <li><h4>Booking Office<h4></li>
         <li>5th floor</li>
         <li>Prosperity House</li>
-        <li>Mayland Road</li>
+        <li>Moi S Lake Rd</li>
         </ul>
     </div>
 
@@ -121,7 +121,7 @@ if(isset($_POST['book'])) {
     </div>
 
     <div class="copy">
-        <p><i>© 2023 | Sandton Resort and Spa | Done by Esther Mwangi</i></p>
+        <p><i>© 2024| Sandton Resort and Spa | Done by Esther Mwangi</i></p>
     </div>
 
 </footer>

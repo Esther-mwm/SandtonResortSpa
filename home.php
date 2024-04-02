@@ -37,7 +37,7 @@
   <img src="./images/hotel2.jpg"height="300"width="450"/> <img src="./images/hotel1.jpg"height="300"width="450"/><br><br><br>
 
     <p>Sandton Resort & Spa was opened in December 2002 and named after the owner Mr.Sandton Leleu.<br>
-       It is located in Mayland by the shores of Lake Burton in Dubai.The resort's location was selected because<br>
+       It is located on Moi S Lake Rd, Karagita.The resort's location was selected because<br>
        of the beautiful view of the lake, the calm and quiet environment far away from the town center hence providing<br>
        the serene environment suitable for relaxing and escaping the city's noise.</p>
     <p>Sandton offers high standards accommodation and modern sophistication on a budget.<br>
@@ -119,8 +119,8 @@
   <div class="bottom">
     <ul>
       <li><h4>Resort Location</h4></li>
-      <li>Mayland South Lake Rd</li>
-      <li>Myland, Dubai</li>
+      <li>Moi S Lake Rd</li>
+      <li>Karagita, Kenya</li>
     </ul>
 
   </div>
@@ -130,7 +130,7 @@
       <li><h4>Booking Office<h4></li>
       <li>5th floor</li>
       <li>Prosperity House</li>
-      <li>Mayland Road</li>
+      <li>Moi S Lake Rd</li>
     </ul>
   </div>
 
@@ -141,7 +141,7 @@
 </div>
 
 <div class="copy">
-  <p><i>© 2023 | Sandton Resort and Spa | Done by Esther Mwangi</i></p>
+  <p><i>© 2024| Sandton Resort and Spa | Done by Esther Mwangi</i></p>
 </div>
 
 </footer>

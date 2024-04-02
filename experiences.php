@@ -56,9 +56,9 @@
 <div class="boat"><br><br>
   <h1 style="color:#7a2021;">BOAT SAFARIS</h1>
   <img src="./images/boat1.jpg"height="300"width="450"/> <img src="./images/boat2.jpg"height="300"width="450"/><br><br><br>
-  <p>There is no better way to see the famous Burton flamingos than on<br>
+  <p>There is no better way to see the famous Naivasha Hippos than on<br>
      a boat Safari. With daily departures right from our lakefront, don’t miss your chance to<br>
-     witness these amazing birds in their natural habitat.</p><br><br>
+     witness these amazing animals in their natural habitat.</p><br><br>
 </div><br><br><br>
 
 <div class="riding">
@@ -95,8 +95,8 @@
   <div class="bottom">
     <ul>
       <li><h4>Resort Location</h4></li>
-      <li>Mayland South Lake Rd</li>
-      <li>Myland, Dubai</li>
+      <li>Moi S Lake Rd</li>
+      <li>Karagita, Kenya</li>
       <li>Tel: +001 20 5230007</li>
       <li>sandton@sandtonresort.com</li>
     </ul>
@@ -108,7 +108,7 @@
       <li><h4>Booking Office<h4></li>
       <li>5th floor</li>
       <li>Prosperity House</li>
-      <li>Mayland Road</li>
+      <li>Moi S Lake Rd</li>
       <li>Cell: +001 30 6473382</li>
     </ul>
   </div>
@@ -120,7 +120,7 @@
 </div>
 
 <div class="copy">
-  <p><i>© 2023 | Sandton Resort and Spa | Done by Esther Mwangi</i></p>
+  <p><i>© 2024| Sandton Resort and Spa | Done by Esther Mwangi</i></p>
 </div>
 </footer>
 

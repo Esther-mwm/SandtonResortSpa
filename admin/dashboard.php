@@ -2,23 +2,52 @@
 // Include the database connection file
 include('connection.php');
 
+// Initialize variables to store counts
+$total_rooms = 0;
+$total_conference = 0;
+$total_wellness = 0;
+$total_users = 0;
+$total_bookings = 0;
+
 // Query to get total rooms
-$sql_total_rooms = "SELECT COUNT(*) AS total_rooms FROM Room";
-$result_total_rooms = mysqli_query($mysqli, $sql_total_rooms);
-$row_total_rooms = mysqli_fetch_assoc($result_total_rooms);
-$total_rooms = $row_total_rooms['total_rooms'];
+$sql_total_rooms = "SELECT COUNT(*) AS total_rooms FROM room_bookings";
+$result_total_rooms = mysqli_query($con, $sql_total_rooms);
+if ($result_total_rooms) {
+    $row_total_rooms = mysqli_fetch_assoc($result_total_rooms);
+    $total_rooms = $row_total_rooms['total_rooms'];
+}
 
 // Query to get total conference halls
-$sql_total_conference = "SELECT COUNT(*) AS total_conference FROM ConferenceHall";
-$result_total_conference = mysqli_query($mysqli, $sql_total_conference);
-$row_total_conference = mysqli_fetch_assoc($result_total_conference);
-$total_conference = $row_total_conference['total_conference'];
+$sql_total_conference = "SELECT COUNT(*) AS total_conference FROM meeting_bookings";
+$result_total_conference = mysqli_query($con, $sql_total_conference);
+if ($result_total_conference) {
+    $row_total_conference = mysqli_fetch_assoc($result_total_conference);
+    $total_conference = $row_total_conference['total_conference'];
+}
 
 // Query to get total wellness activities
-$sql_total_wellness = "SELECT COUNT(*) AS total_wellness FROM WellnessBookings";
-$result_total_wellness = mysqli_query($mysqli, $sql_total_wellness);
-$row_total_wellness = mysqli_fetch_assoc($result_total_wellness);
-$total_wellness = $row_total_wellness['total_wellness'];
+$sql_total_wellness = "SELECT COUNT(*) AS total_wellness FROM wellness_bookings";
+$result_total_wellness = mysqli_query($con, $sql_total_wellness);
+if ($result_total_wellness) {
+    $row_total_wellness = mysqli_fetch_assoc($result_total_wellness);
+    $total_wellness = $row_total_wellness['total_wellness'];
+}
+
+// Query to get total users
+$sql_total_users = "SELECT COUNT(*) AS total_users FROM users";
+$result_total_users = mysqli_query($con, $sql_total_users);
+if ($result_total_users) {
+    $row_total_users = mysqli_fetch_assoc($result_total_users);
+    $total_users = $row_total_users['total_users'];
+}
+
+// Query to get total current bookings
+$sql_total_bookings = "SELECT COUNT(*) AS total_bookings FROM bookings";
+$result_total_bookings = mysqli_query($con, $sql_total_bookings);
+if ($result_total_bookings) {
+    $row_total_bookings = mysqli_fetch_assoc($result_total_bookings);
+    $total_bookings = $row_total_bookings['total_bookings'];
+}
 ?>
 
 <!DOCTYPE html>
@@ -55,7 +84,7 @@ $total_wellness = $row_total_wellness['total_wellness'];
             color: #fff;
             padding: 20px;
             margin: 20px;
-            height:70px;
+            height:90px;
             align-items:center;
             text-align: center;
             border-radius: 5px;
@@ -63,7 +92,7 @@ $total_wellness = $row_total_wellness['total_wellness'];
 
         .box p {
             margin-top: 10px;
-            font-size: 18px;
+            font-size: 16px;
         }
     </style>
 </head>
@@ -92,4 +121,3 @@ $total_wellness = $row_total_wellness['total_wellness'];
     </div>
 </body>
 </html>
-
