@@ -41,13 +41,9 @@ if ($result_total_users) {
     $total_users = $row_total_users['total_users'];
 }
 
-// Query to get total current bookings
-$sql_total_bookings = "SELECT COUNT(*) AS total_bookings FROM bookings";
-$result_total_bookings = mysqli_query($con, $sql_total_bookings);
-if ($result_total_bookings) {
-    $row_total_bookings = mysqli_fetch_assoc($result_total_bookings);
-    $total_bookings = $row_total_bookings['total_bookings'];
-}
+// Calculate total current bookings
+$total_bookings = $total_rooms + $total_conference + $total_wellness;
+
 ?>
 
 <!DOCTYPE html>
